@@ -1,5 +1,7 @@
 # Meter Data Management System (MDMS)
 
+The Application is active on **https://eset0134.github.io/mdms1/**
+
 ## Overview
 
 The **Meter Data Management System (MDMS)** is a full-featured, role-based **React.js** application designed for managing and monitoring electricity meter data.  
