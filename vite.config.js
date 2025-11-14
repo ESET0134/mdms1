@@ -12,5 +12,5 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/mdms1/",
+  base: '/mdms1/',
 });

@@ -33,22 +33,19 @@ export const authService = {
 
     try {
       const parsed = JSON.parse(stored);
+
       if (Array.isArray(parsed)) {
         users = parsed;
-      } else if (parsed && typeof parsed === 'object') {
-        users = [parsed];
       }
     } catch {
       users = [];
     }
 
-    const hasEndUser = users.some((u) => u.role === 'enduser');
-    const hasZoneUser = users.some((u) => u.role === 'zone');
-    const hasEnterpriseUser = users.some((u) => u.role === 'enterprise');
+    const roles = users.map((u) => u.role);
 
-    if (!hasEndUser) users.push(DEFAULT_USER);
-    if (!hasZoneUser) users.push(ZONE_USER);
-    if (!hasEnterpriseUser) users.push(ENTERPRISE_USER);
+    if (!roles.includes('enduser')) users.push(DEFAULT_USER);
+    if (!roles.includes('zone')) users.push(ZONE_USER);
+    if (!roles.includes('enterprise')) users.push(ENTERPRISE_USER);
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
   },
